@@ -119,6 +119,7 @@
     <ClCompile Include="FullServiceNode.cpp" />
     <ClCompile Include="MinerNode.cpp" />
     <ClCompile Include="Network.cpp" />
+    <ClCompile Include="Node.cpp" />
     <ClCompile Include="Observable.cpp" />
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="main.cpp" />
@@ -128,6 +129,7 @@
     <ClInclude Include="general.h" />
     <ClInclude Include="MinerNode.h" />
     <ClInclude Include="Network.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="Observable.h" />
     <ClInclude Include="Observer.h" />
   </ItemGroup>

@@ -17,9 +17,8 @@ private:
 	/*******************************************
 	*********************methods****************
 	********************************************/
-	bool is_fully_connected();
+	int mark_and_number_loops();
 	void stop_search();
 	//void search_for(callback, void * search_data);		callback function!!
-
 };
 

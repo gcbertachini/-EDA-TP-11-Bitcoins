@@ -43,37 +43,6 @@ Network::~Network(){
 	delete network;
 }
 
-/*******************************************
-***************is_fully_connected***********
-********************************************
-*is_fully_connected checks if every single node on the network is
-*directly or indirectly connected to every other node on the network. 
-*INPUT:
-*	1) void.
-*
-*OUTPUT:
-*	boolean that is true if every single node on the network is
-*	directly or indirectly connected to every other node on the network. 
-*	false if not.
-*/
-bool Network::is_fully_connected() {
-
-	bool fully_connected = true;
-	std::vector<FullServiceNode*>::iterator it;
-
-	it = network->begin();						//first node of the network.
-	int group_mark = (*it)->is_marked_visited();	//get the mark of the first node
-
-	while (it != network->end()) {
-		if (group_mark != ((*it)->is_marked_visited())) {		//compare the mark of the first node to every other node.
-			fully_connected = false;							//if i find different marks, the network is not fully connected!
-			break;
-		}
-		++it;
-	}
-	
-	return fully_connected;
-}
 
 /*******************************************
 ***************stop_search******************
@@ -93,4 +62,31 @@ void Network::stop_search() {
 		(*it)->unmark_visited();
 }
 
+/*******************************************
+***************mark_and_number_loops******************
+********************************************
+*mark_and_number_loops tells the user the number of loops in a graph 
+*and leaves all the nodes in the graph marked with a visited group mark.
+*IMPORTANT : should call stop_search after calling this function if you want
+*to have all the nodes left unmarked!
+*INPUT:
+*	1) void.
+*
+*OUTPUT:
+*	an int with the number of loops in the graph.
+*/
+int Network::mark_and_number_loops() {
+	std::vector<FullServiceNode*>::iterator it;
+	int group_mark = 1;
 
+	for (it = network->begin(); it != network->end(); ++it) {
+		FullServiceNode* current_node = *it;
+		if (!(current_node->is_marked_visited())) {
+			current_node->mark_visited(group_mark);
+			current_node->mark_connected_nodes();
+			group_mark++;
+		}
+	}
+	
+	return group_mark;
+}

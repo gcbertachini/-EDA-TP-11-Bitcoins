@@ -4,7 +4,7 @@
 class Observable
 {
 public:
-
+	Observable();
 	~Observable();
 
 	void add_observer(Observer* ob);
