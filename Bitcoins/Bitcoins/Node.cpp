@@ -108,7 +108,17 @@ void Node::mark_visited(int group) {
 	mark = group;
 }
 
-
+/*******************************************
+*****************mark_connected_nodes***************
+********************************************
+*mark_connected_nodes marks recursively every single node this node has direct 
+*and indirect access to.
+*INPUT:
+*	1) void.
+*
+*OUTPUT:
+*	void.
+*/
 void Node::mark_connected_nodes() {
 	if (connection1->is_marked_visited() != mark) {
 		connection1->mark_visited(mark);

@@ -63,7 +63,7 @@ void Network::stop_search() {
 }
 
 /*******************************************
-***************mark_and_number_loops******************
+***************mark_and_number_loops********
 ********************************************
 *mark_and_number_loops tells the user the number of loops in a graph 
 *and leaves all the nodes in the graph marked with a visited group mark.
