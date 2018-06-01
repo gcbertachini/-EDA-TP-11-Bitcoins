@@ -17,8 +17,9 @@ private:
 	/*******************************************
 	*********************methods****************
 	********************************************/
-	int mark_and_number_loops();
+	unsigned int mark_and_number_loops();
 	void stop_search();
+	Node * search_for_mark(int group_mark);
 	//void search_for(callback, void * search_data);		callback function!!
 };
 

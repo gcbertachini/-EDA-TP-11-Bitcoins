@@ -4,6 +4,7 @@
 
 Node::Node()
 {
+	num_connections = 0;
 	connection1 = NULL;
 	connection2 = NULL;
 	mark = NOT_VISITED;
@@ -27,17 +28,20 @@ Node::~Node()
 *
 */
 bool Node::connect_to_node(Node * node) {
+
 	bool connection_made = false;
 
-	if (connection1 == NULL) {
-		connection1 = node;
+	//cant connect to the same node in this type of graph, cant connect if the other node is fully connected,  cant connect if this node is fully connnected!!!
+	if ( (!this->is_fully_connected()) &&(node != this) && (!node->is_fully_connected()) ){			
+		if (connection1 == NULL) 
+			connection1 = node;
+		else if (connection2 == NULL) 
+			connection2 = node;
+		
+		node->connect_to_node(this);
 		connection_made = true;
-	}
-	else if (connection2 == NULL) {
-		connection2 = node;
-		connection_made = true;
-	}
-
+	}	
+	
 	return connection_made;
 }
 /*******************************************
@@ -129,3 +133,46 @@ void Node::mark_connected_nodes() {
 		connection2->mark_connected_nodes();
 	}
 }
+
+/*******************************************
+*****************disconnect*****************
+********************************************
+*disconnects a node from this.
+*INPUT:
+*	1) to_disconnect :	node that should be disconnected. 
+*						NULL if no data about the node to disconnect.
+*OUTPUT:
+*	pointer to the disconnected node if the disconnection was made. NULL if not.
+*/
+Node* Node::disconnect(Node * to_disconnect) {
+
+	bool disconnected = true;
+	if (to_disconnect == NULL)
+		if (connection1 != NULL)
+			to_disconnect = connection1;
+		else if (connection2 != NULL)
+			to_disconnect = connection2;
+		else
+			disconnected = false;
+
+	if (disconnected)
+		if (connection1 == to_disconnect){
+			if(disconnected = to_disconnect->disconnect(this))
+				connection1 = NULL;
+		}
+		else if (connection2 == to_disconnect) {
+			if(disconnected = to_disconnect->disconnect(this))
+				connection2 = NULL;
+		}
+		else
+			disconnected = false;
+	
+	return (disconnected ? to_disconnect : NULL)
+	
+}
+
+
+Node * Node::get_connection(int i) {
+	 return ((i % 2) ? connection1 : connection2);
+}
+

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdio.h>
-#include<io.h>
+#include <stdlib.h>
+#include <time.h>
 #include <vector>
 
 #include "general.h"
@@ -14,11 +15,10 @@ int main(int argc, char *argv[]) {
 
 	unsigned int num_miners = 0, num_full_s =0 ;			//get the values from command line!! (parser!!)
 	//call to parser 
+	srand(time(NULL));
 	std::vector<FullServiceNode*> *network = create_network(num_miners, num_full_s);	//if any other stuff should be added to network, 
 																						//we should stop using a vector to represent it and 
 																						//start using a class!!
-	
-
 }
 
 
