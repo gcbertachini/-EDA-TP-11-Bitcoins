@@ -51,6 +51,12 @@
     <ClCompile Include="Observer.cpp">
       <Filter>Source Files\MVC</Filter>
     </ClCompile>
+    <ClCompile Include="GraphPlotter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GraphicalNode.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="general.h">
@@ -74,5 +80,14 @@
     <ClInclude Include="Observer.h">
       <Filter>Header Files\MVC</Filter>
     </ClInclude>
+    <ClInclude Include="GraphPlotter.h">
+      <Filter>Header Files\Graphs</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicalNode.h">
+      <Filter>Header Files\Graphs</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
 </Project>

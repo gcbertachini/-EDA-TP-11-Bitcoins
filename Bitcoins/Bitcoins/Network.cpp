@@ -128,3 +128,6 @@ Node * Network::search_for_mark(int group_mark) {
 }
 
 
+std::vector<FullServiceNode*> * Network::get_nodes() {
+	return this->network;
+}

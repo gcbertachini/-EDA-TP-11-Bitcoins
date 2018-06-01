@@ -8,6 +8,7 @@ public:
 	Network(unsigned int num_miners, unsigned int num_full_s);
 	~Network();
 
+	std::vector<FullServiceNode*> * get_nodes();
 private:
 	/*******************************************
 	*************member variables***************
