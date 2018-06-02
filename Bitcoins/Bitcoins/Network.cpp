@@ -1,5 +1,5 @@
 #include "Network.h"
-
+#include <iostream>
 
 /*******************************************
 ***************create_network***************
@@ -23,14 +23,16 @@ Network::Network(unsigned int num_miners, unsigned int num_full_s){
 	for (size_t i = 0; i < num_full_s; i++) 
 		network->push_back(new FullServiceNode());
 
+	printf_network();
 	//we have to start connecting the nodes!!!!
 
 	std::vector<FullServiceNode*>::iterator it;
 	for (it = network->begin(); it != network->end(); ++it) {
-			FullServiceNode* connect_to = NULL;
-			while ((!(*it)->is_fully_connected()) && (!(*it)->connect_to_node(connect_to)) ) { //tries to connect a not fully connected node to the randomly selected one
+			FullServiceNode* connect_to;
+			while ( !(*it)->is_fully_connected() ) { //tries to connect a not fully connected node to the randomly selected one
 				unsigned int connect_to_index = rand() % node_amount;		
 				connect_to = (*network)[connect_to_index];					//randomly selects a node from the network
+				(*it)->connect_to_node(connect_to);
 			} 				
 	}
 
@@ -38,10 +40,11 @@ Network::Network(unsigned int num_miners, unsigned int num_full_s){
 
 	Node * new_head = search_for_mark(1);
 	
-	for (it = network->begin(); it != network->end(); ++it) 
+	for (it = network->begin(); it != network->end(); ++it) {
 		if ((*it)->is_marked_visited() != 1) 
 			(*it)->connect_to_node(new_head);					//connects node from diffent loops to the new head!!
-
+	}
+	printf_network();
 	stop_search();			//marks everything as unvisited!
 }
 
@@ -130,4 +133,27 @@ Node * Network::search_for_mark(int group_mark) {
 
 std::vector<FullServiceNode*> * Network::get_nodes() {
 	return this->network;
+}
+
+
+void Network::printf_network() {
+
+	std::cout << "The network  has " << network->size() << " nodes."<< std::endl;
+	std::vector<FullServiceNode*>::iterator it;
+	int node_count = 0;
+	for (it = network->begin(); it != network->end(); ++it) {
+		FullServiceNode * node = (*it);
+		std::cout << "Node " << node->name << ": " << std::endl;
+		std::cout << "\tMiner: "<< node->is_miner() << std::endl;
+		std::cout << "\tVisited Mark: " << node->is_marked_visited() << std::endl;
+		std::cout << "\tConnections: " << std::endl;
+
+		int i = 0;
+		Node* fsnode;
+		while ( ( fsnode = node->get_connection(i)) != NULL) {
+			std::cout << fsnode->name << ". Visited mark: " << fsnode->is_marked_visited()<<std::endl;
+			i++;
+		}
+		node_count++;
+	}
 }

@@ -8,6 +8,8 @@ public:
 	~Node();
 
 	//connection related methods.
+	///////////////////////////////
+
 	bool connect_to_node(Node * node);
 	bool is_fully_connected();
 
@@ -18,6 +20,9 @@ public:
 	void mark_connected_nodes();
 
 	//getters and atribute related methods.
+	///////////////////////////////
+	int name;
+
 	Node * get_connection(int i);
 private:
 
@@ -26,9 +31,11 @@ private:
 	********************************************/
 	std::vector<Node*> connections;
 	int mark;			//visited mark. 0 if not visited.
+	static int count;
 
 	/*******************************************
 	*********************methods****************
 	********************************************/
 };
+
 

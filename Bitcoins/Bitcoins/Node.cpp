@@ -6,6 +6,8 @@
 Node::Node()
 {
 	mark = NOT_VISITED;
+	name = count;
+	count++;
 }
 
 Node::~Node()
@@ -29,7 +31,7 @@ bool Node::connect_to_node(Node * node) {
 	bool connection_made = false;
 	// https://stackoverflow.com/questions/3450860/check-if-a-stdvector-contains-a-certain-object
 	//cant connect to the same node in this type of graph! cant connect if the node is already connected!
-	if ((std::find(connections.begin(), connections.end(), node) != connections.end()) && (node != this) ){		
+	if (!(std::find(connections.begin(), connections.end(), node) != connections.end()) && (node != this) ){		
 		connections.push_back(node);
 		node->connect_to_node(this);
 		connection_made = true;
@@ -166,6 +168,7 @@ Node* Node::disconnect(Node * to_disconnect) {
 
 Node * Node::get_connection(int i) {
 
-	return (((i < 0) || (i > connections.size()) ) ? NULL : connections[i]);
+	return (((i < 0) || (i >= connections.size()) ) ? NULL : connections[i]);
 }
 
+int Node::count = 0;

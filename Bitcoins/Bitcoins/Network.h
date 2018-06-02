@@ -22,5 +22,7 @@ private:
 	void stop_search();
 	Node * search_for_mark(int group_mark);
 	//void search_for(callback, void * search_data);		callback function!!
+
+	void printf_network();
 };
 

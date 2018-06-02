@@ -9,7 +9,8 @@ GraphPlotter::GraphPlotter(Network * net, double display_height, double display_
 	display = NULL;
 	std::vector<FullServiceNode*> *net_nodes = net->get_nodes();
 
-	
+	network = new std::vector<GraphicalNode * >();
+
 	std::vector<FullServiceNode*>::iterator it;
 	for (it = net->get_nodes()->begin(); it != net->get_nodes()->end(); ++it)
 		network->push_back(new GraphicalNode(*it));
