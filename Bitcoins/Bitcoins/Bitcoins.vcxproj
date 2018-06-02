@@ -126,6 +126,7 @@
   <ItemGroup>
     <ClCompile Include="apunte.cpp" />
     <ClCompile Include="BlockChain.cpp" />
+    <ClCompile Include="Controller.cpp" />
     <ClCompile Include="FullServiceNode.cpp" />
     <ClCompile Include="GraphicalNode.cpp" />
     <ClCompile Include="GraphPlotter.cpp" />
@@ -139,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BlockChain.h" />
+    <ClInclude Include="Controller.h" />
     <ClInclude Include="FullServiceNode.h" />
     <ClInclude Include="general.h" />
     <ClInclude Include="GraphicalNode.h" />

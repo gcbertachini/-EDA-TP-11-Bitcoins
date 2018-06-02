@@ -25,6 +25,12 @@
     <Filter Include="Source Files\MVC">
       <UniqueIdentifier>{842700f3-5e30-4936-9993-6eb24d4962f4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Coin">
+      <UniqueIdentifier>{7bb5c64f-9fbe-4022-b166-a4f3f006fcbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Coin">
+      <UniqueIdentifier>{532750bb-d809-4fa4-945d-792a55436817}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="apunte.cpp">
@@ -57,11 +63,14 @@
     <ClCompile Include="GraphicalNode.cpp">
       <Filter>Source Files\Graphs</Filter>
     </ClCompile>
-    <ClCompile Include="Transaction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="BlockChain.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Coin</Filter>
+    </ClCompile>
+    <ClCompile Include="Transaction.cpp">
+      <Filter>Source Files\Coin</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller.cpp">
+      <Filter>Source Files\MVC</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -92,11 +101,14 @@
     <ClInclude Include="GraphicalNode.h">
       <Filter>Header Files\Graphs</Filter>
     </ClInclude>
-    <ClInclude Include="Transaction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="BlockChain.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Coin</Filter>
+    </ClInclude>
+    <ClInclude Include="Transaction.h">
+      <Filter>Header Files\Coin</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller.h">
+      <Filter>Header Files\MVC</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
