@@ -13,6 +13,7 @@ public:
 	GraphPlotter(Network * net, double display_height,double display_width);
 	~GraphPlotter();
 
+	bool init_gui();
 	void plot_graph(unsigned int num_nodes);
 
 private:
@@ -21,5 +22,6 @@ private:
 	double display_height;
 	double display_width;
 
+	ALLEGRO_DISPLAY * display;
 };
 

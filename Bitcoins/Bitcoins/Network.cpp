@@ -27,7 +27,7 @@ Network::Network(unsigned int num_miners, unsigned int num_full_s){
 
 	std::vector<FullServiceNode*>::iterator it;
 	for (it = network->begin(); it != network->end(); ++it) {
-			FullServiceNode* connect_to;
+			FullServiceNode* connect_to = NULL;
 			while ((!(*it)->is_fully_connected()) && (!(*it)->connect_to_node(connect_to)) ) { //tries to connect a not fully connected node to the randomly selected one
 				unsigned int connect_to_index = rand() % node_amount;		
 				connect_to = (*network)[connect_to_index];					//randomly selects a node from the network

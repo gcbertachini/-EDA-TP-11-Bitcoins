@@ -1,15 +1,12 @@
 #include "Node.h"
+#include <algorithm>
 
 #define NOT_VISITED 0		//logical false!! always!
 
 Node::Node()
 {
-	num_connections = 0;
-	connection1 = NULL;
-	connection2 = NULL;
 	mark = NOT_VISITED;
 }
-
 
 Node::~Node()
 {
@@ -18,7 +15,7 @@ Node::~Node()
 /*******************************************
 ***************connect_to_node**************
 ********************************************
-*connect_to_node connects the node to a given node.
+*connect_to_node connects the node to a given node bidireccionally.
 *INPUT:
 *	1) node : node to be connected to.
 *
@@ -30,24 +27,19 @@ Node::~Node()
 bool Node::connect_to_node(Node * node) {
 
 	bool connection_made = false;
-
-	//cant connect to the same node in this type of graph, cant connect if the other node is fully connected,  cant connect if this node is fully connnected!!!
-	if ( (!this->is_fully_connected()) &&(node != this) && (!node->is_fully_connected()) ){			
-		if (connection1 == NULL) 
-			connection1 = node;
-		else if (connection2 == NULL) 
-			connection2 = node;
-		
+	// https://stackoverflow.com/questions/3450860/check-if-a-stdvector-contains-a-certain-object
+	//cant connect to the same node in this type of graph! cant connect if the node is already connected!
+	if ((std::find(connections.begin(), connections.end(), node) != connections.end()) && (node != this) ){		
+		connections.push_back(node);
 		node->connect_to_node(this);
 		connection_made = true;
 	}	
-	
 	return connection_made;
 }
 /*******************************************
 ***************is_fully_connected***********
 ********************************************
-*is_fully_connected tells if the node has made all its possible connections.
+*is_fully_connected tells if the node has 2 or more connections.
 *
 *INPUT:
 *	1) void
@@ -58,7 +50,7 @@ bool Node::connect_to_node(Node * node) {
 *
 */
 bool Node::is_fully_connected() {
-	return ((connection1 != NULL) && (connection2 != NULL));
+	return(connections.size() >= 2);
 }
 
 
@@ -124,14 +116,13 @@ void Node::mark_visited(int group) {
 *	void.
 */
 void Node::mark_connected_nodes() {
-	if (connection1->is_marked_visited() != mark) {
-		connection1->mark_visited(mark);
-		connection1->mark_connected_nodes();
-	}
-	if (connection2->is_marked_visited() != mark) {
-		connection2->mark_visited(mark);
-		connection2->mark_connected_nodes();
-	}
+	std::vector<Node*>::iterator it;
+	for (it = connections.begin(); it != connections.end(); ++it) 
+		if ((*it)->is_marked_visited() != mark) {
+			(*it)->mark_visited(mark);
+			(*it)->mark_connected_nodes();
+		}
+	
 }
 
 /*******************************************
@@ -144,6 +135,7 @@ void Node::mark_connected_nodes() {
 *OUTPUT:
 *	pointer to the disconnected node if the disconnection was made. NULL if not.
 */
+/*
 Node* Node::disconnect(Node * to_disconnect) {
 
 	bool disconnected = true;
@@ -170,9 +162,10 @@ Node* Node::disconnect(Node * to_disconnect) {
 	return (disconnected ? to_disconnect : NULL)
 	
 }
-
+*/
 
 Node * Node::get_connection(int i) {
-	 return ((i % 2) ? connection1 : connection2);
+
+	return (((i < 0) || (i > connections.size()) ) ? NULL : connections[i]);
 }
 

@@ -52,10 +52,10 @@
       <Filter>Source Files\MVC</Filter>
     </ClCompile>
     <ClCompile Include="GraphPlotter.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Graphs</Filter>
     </ClCompile>
     <ClCompile Include="GraphicalNode.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Graphs</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

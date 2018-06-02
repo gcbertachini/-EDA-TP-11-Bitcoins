@@ -11,6 +11,7 @@
 #define DISPLAY_W 800.0
 #define DISPLAY_H 600.0
 
+std::vector<FullServiceNode*> * create_network(unsigned int num_miners, unsigned int num_full_s);
 
 int main(int argc, char *argv[]) {
 

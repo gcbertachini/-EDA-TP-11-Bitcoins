@@ -1,6 +1,6 @@
 #pragma once
 #include <string>		//necesito incluir algo del estilo para que me reconozca NULL!
-
+#include <vector>
 class Node
 {
 public:
@@ -10,7 +10,6 @@ public:
 	//connection related methods.
 	bool connect_to_node(Node * node);
 	bool is_fully_connected();
-	Node* disconnect(Node * to_disconnect = NULL);
 
 	//visited related methods.
 	void mark_visited(int group);
@@ -25,9 +24,7 @@ private:
 	/*******************************************
 	*************member variables***************
 	********************************************/
-	Node* connection1;
-	Node* connection2;
-	int num_connections;
+	std::vector<Node*> connections;
 	int mark;			//visited mark. 0 if not visited.
 
 	/*******************************************
