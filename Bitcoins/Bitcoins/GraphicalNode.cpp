@@ -1,23 +1,26 @@
 #include "GraphicalNode.h"
 #include "allegro5/allegro_primitives.h"
-#define COLORED_TAG UINT16_MAX
+#define _USE_MATH_DEFINES
+#include <math.h>
 GraphicalNode::GraphicalNode(FullServiceNode * node)
 {
 	selected = false;
-}
+	drawn_mark = false;
 
+}
 
 GraphicalNode::~GraphicalNode(){
+
 }
 
 
-ALLEGRO_COLOR GraphicalNode::get_color() {
+ALLEGRO_COLOR GraphicalNode::get_color(bool is_miner) {
 	ALLEGRO_COLOR color;
 
 	if (!selected)
-		color = (this->is_miner() ? al_color_name("Red") : al_color_name("Blue"));
+		color = (is_miner ? al_color_name("red") : al_color_name("blue"));
 	else
-		color = al_color_name("Orange");
+		color = al_color_name("orange");
 
 	return color;
 }
@@ -26,21 +29,39 @@ bool GraphicalNode::is_selected() {
 	return this->selected;
 }
 
-void GraphicalNode::draw_connections() {
-
-	if(this->is_marked_visited() != COLORED_TAG){
-		this->mark_visited(COLORED_TAG);
-		for (int i = 0; this->get_connection(i) != NULL;i++) {
-			GraphicalNode * to_draw = (GraphicalNode *)this->get_connection(i);
-			al_draw_line(pos_x, pos_y, to_draw->pos_x, to_draw->pos_y, al_color_name("White"), 1);
-			to_draw->draw_connections();
-		}
-	}
-}
-
 void GraphicalNode::set_pos_x(double pos_x) {
 	this->pos_x = pos_x;
 }
 void GraphicalNode::set_pos_y(double pos_y) {
 	this->pos_y = pos_y;
+}
+void GraphicalNode::set_radius(double rad) {
+	this->radius = rad;
+}
+
+bool GraphicalNode::is_clicked(double x_click, double y_click) {
+	double distance_from_circle_centre = sqrt(pow(x_click - pos_x, 2) + pow(y_click - pos_y, 2));
+	return (distance_from_circle_centre <= radius);
+}
+
+void GraphicalNode::mark_drawn() {
+	this->drawn_mark = true;
+}
+
+void GraphicalNode::unmark_drawn() {
+	this->drawn_mark = false;
+}
+
+bool GraphicalNode::is_marked_drawn() {
+	return drawn_mark;
+}
+
+double GraphicalNode::get_pos_x() {
+	return pos_x;
+}
+double GraphicalNode::get_pos_y() {
+	return pos_y;
+}
+double GraphicalNode::get_radius() {
+	return radius;
 }

@@ -23,7 +23,6 @@ Network::Network(unsigned int num_miners, unsigned int num_full_s){
 	for (size_t i = 0; i < num_full_s; i++) 
 		network->push_back(new FullServiceNode());
 
-	printf_network();
 	//we have to start connecting the nodes!!!!
 
 	std::vector<FullServiceNode*>::iterator it;
@@ -135,7 +134,16 @@ std::vector<FullServiceNode*> * Network::get_nodes() {
 	return this->network;
 }
 
-
+/*******************************************
+***************printf_network******************
+********************************************
+*printf_network Prints the network in string format for debugging.
+*INPUT:
+*	1) void.
+*
+*OUTPUT:
+*	void.
+*/
 void Network::printf_network() {
 
 	std::cout << "The network  has " << network->size() << " nodes."<< std::endl;

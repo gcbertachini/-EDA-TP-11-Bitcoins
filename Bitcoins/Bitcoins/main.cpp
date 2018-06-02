@@ -20,7 +20,9 @@ int main(int argc, char *argv[]) {
 	Network * network = new Network(num_miners, num_full_s);
 
 	 GraphPlotter plotter = GraphPlotter(network, DISPLAY_H, DISPLAY_W);
+	 plotter.init_gui();
 	 plotter.plot_graph(num_miners + num_full_s);
+	 getchar();
 
 	 return 0;
 }

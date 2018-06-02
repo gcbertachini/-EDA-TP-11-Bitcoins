@@ -1,7 +1,7 @@
 #pragma once
 #include <string>		//necesito incluir algo del estilo para que me reconozca NULL!
 #include <vector>
-class Node
+ class Node abstract
 {
 public:
 	Node();
