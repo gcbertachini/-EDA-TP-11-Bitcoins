@@ -2,8 +2,6 @@
 #include <iostream>
 #define _USE_MATH_DEFINES
 #include <math.h>
-#define DEFAULT_SCREEN_H 600
-#define DEFAULT_SCREEN_W 600
 
 /*******************************************
 ***************GraphPlotter*****************
@@ -38,6 +36,10 @@ GraphPlotter::GraphPlotter(Network * net, double display_height, double display_
 	}
 	this->display_width = display_width;
 	this->display_height = display_height;
+
+
+	amount_of_mined_blocks = 0;
+	average_mining_time = 0;
 
 }
 
@@ -194,10 +196,6 @@ bool GraphPlotter::init_gui() {
 	al_set_new_display_option(ALLEGRO_SAMPLE_BUFFERS, 1, ALLEGRO_SUGGEST);
 	al_set_new_display_option(ALLEGRO_SAMPLES, 8, ALLEGRO_SUGGEST);
 	al_set_new_display_flags(ALLEGRO_RESIZABLE);
-
-	display_height = DEFAULT_SCREEN_H;
-	display_width = DEFAULT_SCREEN_W;
-
 	
 	if (!(display = al_create_display(display_width, display_height)))
 	{
@@ -241,3 +239,4 @@ FullServiceNode * GraphPlotter::get_associated_node(GraphicalNode * graph_node) 
 GraphicalNode * GraphPlotter::get_associated_graphical_node(FullServiceNode * graph_node) {
 	return (*logical_graph_map->find(graph_node)).second;
 }
+

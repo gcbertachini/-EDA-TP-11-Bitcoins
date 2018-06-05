@@ -137,6 +137,7 @@
     <ClCompile Include="Observer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Transaction.cpp" />
+    <ClCompile Include="UTXO.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BlockChain.h" />
@@ -151,6 +152,7 @@
     <ClInclude Include="Observable.h" />
     <ClInclude Include="Observer.h" />
     <ClInclude Include="Transaction.h" />
+    <ClInclude Include="UTXO.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

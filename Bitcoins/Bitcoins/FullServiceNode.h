@@ -2,7 +2,7 @@
 #include "Observable.h"
 #include "Node.h"
 #include "BlockChain.h"
-
+#include "UTXO.h"
 class FullServiceNode: public Node, public Observable
 {
 public:
@@ -25,6 +25,8 @@ private:
 
 	uint32_t private_key;
 	BlockChain * block_chain;
+	std::vector<UTXO> UTXOS;
+
 };
 
 /*

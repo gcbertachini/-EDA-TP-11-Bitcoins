@@ -39,12 +39,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FullServiceNode.cpp">
-      <Filter>Source Files\Graphs</Filter>
-    </ClCompile>
-    <ClCompile Include="MinerNode.cpp">
-      <Filter>Source Files\Graphs</Filter>
-    </ClCompile>
     <ClCompile Include="Network.cpp">
       <Filter>Source Files\Graphs</Filter>
     </ClCompile>
@@ -72,16 +66,19 @@
     <ClCompile Include="Controller.cpp">
       <Filter>Source Files\MVC</Filter>
     </ClCompile>
+    <ClCompile Include="FullServiceNode.cpp">
+      <Filter>Source Files\Coin</Filter>
+    </ClCompile>
+    <ClCompile Include="MinerNode.cpp">
+      <Filter>Source Files\Coin</Filter>
+    </ClCompile>
+    <ClCompile Include="UTXO.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="general.h">
       <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FullServiceNode.h">
-      <Filter>Header Files\Graphs</Filter>
-    </ClInclude>
-    <ClInclude Include="MinerNode.h">
-      <Filter>Header Files\Graphs</Filter>
     </ClInclude>
     <ClInclude Include="Network.h">
       <Filter>Header Files\Graphs</Filter>
@@ -109,6 +106,15 @@
     </ClInclude>
     <ClInclude Include="Controller.h">
       <Filter>Header Files\MVC</Filter>
+    </ClInclude>
+    <ClInclude Include="FullServiceNode.h">
+      <Filter>Header Files\Coin</Filter>
+    </ClInclude>
+    <ClInclude Include="MinerNode.h">
+      <Filter>Header Files\Coin</Filter>
+    </ClInclude>
+    <ClInclude Include="UTXO.h">
+      <Filter>Header Files\Coin</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
