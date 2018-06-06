@@ -23,6 +23,15 @@ public:
 
 private:
 
+	//methods:
+	////////////////
+
+	void create_transaction();
+	void send_transaction();
+
+	//properties:
+	///////////////
+
 	uint32_t private_key;
 	BlockChain * block_chain;
 	std::vector<UTXO> UTXOS;

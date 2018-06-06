@@ -1,4 +1,7 @@
 #pragma once
+#include "Input.h"
+#include "Output.h"
+
 class Transaction
 {
 public:
@@ -7,7 +10,8 @@ public:
 
 
 private:
-
+	Input input;
+	Output output;
 };
 
 
