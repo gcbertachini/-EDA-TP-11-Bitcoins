@@ -21,12 +21,15 @@ bool MinerNode::mine()
 	}
 	BlockToMine->setNonce(newnonce);
 
-	//hash();
+	string hash;
+	//hash = hash();
 
-	if (checkChallenge())
+	if (checkChallenge(hash))	//Chequeo que se cumpla el challenge
 	{
+		setPOW(hash);	//GUardo el nuevo POW
 		checkDifficulty();
 		sendBlockToAll();
+		killBlock();
 		createBlockFromStack();
 		answer = true;
 	}
@@ -52,6 +55,43 @@ bool MinerNode::isNewNonce(int nonce)	//Chequeo que el nonce no se haya usado an
 		}
 	}
 	return answer;
+}
+
+bool MinerNode::checkChallenge(string hash)
+{
+	
+	for (int i = 0; i < POW_number; i++)
+	{
+		if (hash[i] != '0')
+			return false;
+	}
+	return true;
+}
+
+string MinerNode::getPOW()
+{
+	return POW;
+}
+
+void MinerNode::setPOW(string newPOW)
+{
+	this->POW = newPOW;
+}
+
+bool MinerNode::killBlock()
+{
+	delete this->BlockToMine;
+}
+
+bool MinerNode::createBlockFromStack()	//Falta que pasa si no hay transacciones	(SE PUEDE HACER MAS LINDO CON CONSTRUCTOR DE BLOQUE)
+{
+	BlockToMine = new Block;
+	BlockToMine->transactioncountSet(listaTransacciones.size());
+	for (int i = 0; i < listaTransacciones.size(); i++)
+	{
+		BlockToMine->addTransaction(listaTransacciones[i]);	//Paso transaciones de lista del nodo, a bloque
+	}
+
 }
 
 

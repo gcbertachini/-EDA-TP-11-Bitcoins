@@ -26,7 +26,7 @@ public:
 	void recieveBlock(Block newblock);
 
 
-private:
+protected:
 
 	//methods:
 	////////////////
@@ -34,8 +34,8 @@ private:
 	void create_transaction();
 	void send_transaction();
 
-	bool verifyRecievedBlock();
-	bool insertBlockIntoBlockchain();
+	bool verifyRecievedBlock();	//Comparo transacciones en el bloque con las que estan en mi lista
+	bool insertBlockIntoBlockchain();	//Meto el bloque que llego en el blockchain
 
 	//properties:
 	///////////////

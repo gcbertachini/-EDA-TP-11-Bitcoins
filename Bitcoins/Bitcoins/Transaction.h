@@ -7,7 +7,7 @@ class Transaction
 public:
 	Transaction();
 	~Transaction();
-
+	//Necesito una funcion que me devuelva el hash (muchas gracias)
 
 private:
 	Input input;

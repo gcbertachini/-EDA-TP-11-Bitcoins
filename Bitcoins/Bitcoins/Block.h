@@ -15,6 +15,9 @@ public:
 
 	size_t getlistSize();
 
+	void transactioncountSet(int i) { this->transactionCount = i; };
+	void addTransaction(Transaction trans) { transactionList.push_back(trans); };
+
 private:
 	string previousBlockHash;
 	int block_id;
