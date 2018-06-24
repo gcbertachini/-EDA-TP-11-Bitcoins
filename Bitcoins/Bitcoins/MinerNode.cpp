@@ -27,10 +27,11 @@ bool MinerNode::mine()
 	if (checkChallenge(hash))	//Chequeo que se cumpla el challenge
 	{
 		setPOW(hash);	//GUardo el nuevo POW
-		checkDifficulty();
-		sendBlockToAll();
-		killBlock();
-		createBlockFromStack();
+		checkDifficulty();	//Veo si tengo que modificaar la dificultad
+		sendBlockToAll();	//FALTA HACER (enviar bloque minado a los demas nodos)
+		killBlock();	//Mato el bloque para luego crear otro
+		previousNONCE.clear();	//Borro los nonces ya que cambio de bloque
+		createBlockFromStack();	//Creo Bloque con las transacciones nuevas
 		answer = true;
 	}
 
