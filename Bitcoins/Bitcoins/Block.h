@@ -18,11 +18,12 @@ public:
 	void transactioncountSet(int i) { this->transactionCount = i; };
 	void addTransaction(Transaction trans) { transactionList.push_back(trans); };
 
+
 private:
 	string previousBlockHash;
 	int block_id;
-	int timestamp;
 	int nonce;
+	int timestamp;
 	int transactionCount;
 	vector<Transaction> transactionList;
 

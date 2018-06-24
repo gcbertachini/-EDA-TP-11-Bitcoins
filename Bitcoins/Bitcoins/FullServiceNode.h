@@ -26,6 +26,7 @@ public:
 	void recieveBlock(Block newblock);
 
 
+
 protected:
 
 	//methods:

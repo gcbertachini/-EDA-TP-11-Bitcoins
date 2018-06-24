@@ -30,6 +30,12 @@ public:
 	 string getPOW();
 
 	 void setPOW(string newPOW);
+
+	 string hasheame();
+
+	 string blockString;
+
+	 void fillString();
 	
 
 private:

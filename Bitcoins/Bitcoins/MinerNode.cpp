@@ -21,8 +21,7 @@ bool MinerNode::mine()
 	}
 	BlockToMine->setNonce(newnonce);
 
-	string hash;
-	//hash = hash();
+	string hash = hasheame();
 
 	if (checkChallenge(hash))	//Chequeo que se cumpla el challenge
 	{
@@ -113,3 +112,19 @@ bool MinerNode::is_miner() {
 	return true;
 }
 
+string MinerNode::hasheame() {
+	SHA256 hash;
+	string digest;
+	StringSource s(blockString, true, new HashFilter(hash, new HexEncoder(new StringSink(digest))));
+	return digest;
+}
+
+void MinerNode::fillString()
+{
+	blockString.clear();
+	char * aux;
+	for (int i = 0; i < sizeof(Block); i++, aux++)
+	{
+		blockString += *aux;
+	}
+}

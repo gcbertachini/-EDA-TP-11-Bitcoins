@@ -8,8 +8,8 @@
 #include "Network.h"
 #include "GraphPlotter.h"
 
-#define DISPLAY_W 1500
-#define DISPLAY_H 1500
+#define DISPLAY_W 720
+#define DISPLAY_H 720
 
 
 int main(int argc, char *argv[]) {
