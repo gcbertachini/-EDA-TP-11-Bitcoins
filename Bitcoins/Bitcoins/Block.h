@@ -11,6 +11,10 @@ public:
 	~Block();
 	void setNonce(int nonce);
 
+	Transaction getTransaction(int i);
+
+	size_t getlistSize();
+
 private:
 	string previousBlockHash;
 	int block_id;

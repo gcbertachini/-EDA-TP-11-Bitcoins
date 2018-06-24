@@ -22,6 +22,8 @@ public:
 	virtual bool is_miner();
 
 	bool addToBlockchain();
+	
+	void recieveBlock(Block newblock);
 
 
 private:
