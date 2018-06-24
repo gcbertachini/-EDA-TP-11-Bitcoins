@@ -125,6 +125,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="apunte.cpp" />
+    <ClCompile Include="Block.cpp" />
     <ClCompile Include="BlockChain.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="FullServiceNode.cpp" />
@@ -142,6 +143,7 @@
     <ClCompile Include="UTXO.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Block.h" />
     <ClInclude Include="BlockChain.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="FullServiceNode.h" />

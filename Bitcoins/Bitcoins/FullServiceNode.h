@@ -3,6 +3,7 @@
 #include "Node.h"
 #include "BlockChain.h"
 #include "UTXO.h"
+#include "Block.h"
 class FullServiceNode: public Node, public Observable
 {
 public:
@@ -20,6 +21,8 @@ public:
 	~FullServiceNode();
 	virtual bool is_miner();
 
+	bool addToBlockchain();
+
 
 private:
 
@@ -29,12 +32,20 @@ private:
 	void create_transaction();
 	void send_transaction();
 
+	bool verifyRecievedBlock();
+	bool insertBlockIntoBlockchain();
+
 	//properties:
 	///////////////
 
 	uint32_t private_key;
 	BlockChain * block_chain;
-	std::vector<UTXO> UTXOS;
+
+	Block* block2check;	 //Espacio para confirmar bloque entrante
+
+	vector<Transaction>listaTransacciones;
+
+	vector<UTXO> UTXOS;
 
 };
 

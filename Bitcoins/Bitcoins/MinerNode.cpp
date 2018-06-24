@@ -11,6 +11,49 @@ MinerNode::~MinerNode()
 {
 }
 
+bool MinerNode::mine()
+{
+	bool answer;
+	int newnonce = rand();
+	while (!isNewNonce(newnonce))	// Chequeo que no haya usado previamente el nonce
+	{
+		newnonce = rand();
+	}
+	BlockToMine->setNonce(newnonce);
+
+	//hash();
+
+	if (checkChallenge())
+	{
+		checkDifficulty();
+		sendBlockToAll();
+		createBlockFromStack();
+		answer = true;
+	}
+
+	else
+	{
+		answer = false;
+	}
+
+	return answer;
+	
+}
+
+bool MinerNode::isNewNonce(int nonce)	//Chequeo que el nonce no se haya usado antes
+{
+	bool answer = true;
+	for (int i = 0; i < previousNONCE.size(); i++)
+	{
+		if (previousNONCE[i] == nonce)
+		{
+			answer = false;
+			break;
+		}
+	}
+	return answer;
+}
+
 
 /*******************************************
 ******************is_miner******************

@@ -3,6 +3,7 @@
 
 FullServiceNode::FullServiceNode()
 {
+	block_chain = new BlockChain();
 }
 
 FullServiceNode::~FullServiceNode()
