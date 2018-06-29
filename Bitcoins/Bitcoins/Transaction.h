@@ -1,6 +1,7 @@
 #pragma once
 #include "Input.h"
 #include "Output.h"
+#include "crypto.h"
 
 class Transaction
 {
@@ -9,9 +10,11 @@ public:
 	~Transaction();
 	//Necesito una funcion que me devuelva el hash (muchas gracias)
 
+	SHA256 hashID;
+
 private:
-	Input input;
-	Output output;
+	vector<Input> inputs;
+	vector<Output> outputs;
 };
 
 

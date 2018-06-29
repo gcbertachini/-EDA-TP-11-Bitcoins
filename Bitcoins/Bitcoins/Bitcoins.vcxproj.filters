@@ -84,6 +84,9 @@
     <ClCompile Include="Block.cpp">
       <Filter>Source Files\Coin</Filter>
     </ClCompile>
+    <ClCompile Include="crypto.cpp">
+      <Filter>Header Files\Coin</Filter>
+    </ClCompile>
     <ClCompile Include="Timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -136,9 +139,6 @@
     </ClInclude>
     <ClInclude Include="Block.h">
       <Filter>Header Files\Coin</Filter>
-    </ClInclude>
-    <ClInclude Include="Timer.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

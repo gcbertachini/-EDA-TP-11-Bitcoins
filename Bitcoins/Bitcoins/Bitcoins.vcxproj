@@ -86,6 +86,9 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Users\Germán Bertachini\Documents\Disco HDD\Documentos\Documents\Facultad\ITBA\2° año\1 ° Cuatri\EDA\Algoritmos y Estructura de datos - 22.08\Práctica\TPs\TP 11 - Bitcoins\Cryptolib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -134,6 +137,7 @@
     <ClCompile Include="Block.cpp" />
     <ClCompile Include="BlockChain.cpp" />
     <ClCompile Include="Controller.cpp" />
+    <ClCompile Include="crypto.cpp" />
     <ClCompile Include="FullServiceNode.cpp" />
     <ClCompile Include="GraphicalNode.cpp" />
     <ClCompile Include="GraphPlotter.cpp" />
@@ -153,6 +157,7 @@
     <ClInclude Include="Block.h" />
     <ClInclude Include="BlockChain.h" />
     <ClInclude Include="Controller.h" />
+    <ClInclude Include="crypto.h" />
     <ClInclude Include="FullServiceNode.h" />
     <ClInclude Include="general.h" />
     <ClInclude Include="GraphicalNode.h" />
