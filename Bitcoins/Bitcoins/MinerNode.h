@@ -13,6 +13,8 @@
 
 
 using namespace std;
+using namespace CryptoPP;
+
 class MinerNode : public FullServiceNode
 {
 public:
@@ -55,4 +57,4 @@ private:
 	
 };
 
-//FALTA  HASHEO, Chequeo dificultad, Send Block to all, block_incoming (HACER LOGICA DE MINADO DE TODOS LOS NODOS), cuando se recibe un bloque eliminar al que se estaba minando.
+//FALTA Chequeo dificultad, Send Block to all, block_incoming (HACER LOGICA DE MINADO DE TODOS LOS NODOS), cuando se recibe un bloque eliminar al que se estaba minando.
