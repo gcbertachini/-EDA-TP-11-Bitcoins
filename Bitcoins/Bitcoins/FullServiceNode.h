@@ -25,7 +25,7 @@ public:
 	
 	void recieveBlock(Block newblock);
 
-
+	virtual void maliciousTransaction(Transaction mali_trans); //Me llega una transaccion maliciosa y la saco del blockchain
 
 protected:
 
@@ -35,7 +35,7 @@ protected:
 	void create_transaction();
 	void send_transaction();
 
-	bool verifyRecievedBlock();	//Comparo transacciones en el bloque con las que estan en mi lista
+	virtual bool verifyRecievedBlock();	//Comparo transacciones en el bloque con las que estan en mi lista
 	bool insertBlockIntoBlockchain();	//Meto el bloque que llego en el blockchain
 
 	//properties:
@@ -51,6 +51,8 @@ protected:
 	vector<UTXO> UTXOS;
 
 };
+
+////Falta hacer ciclado de minado, y de verificar el bloque recibido
 
 /*
 El Nodo está compuesto por: 
